@@ -7,11 +7,20 @@ module.exports.decorateConfig = config => {
     termCSS: `
       ${config.termCSS || ''}
       .cursor-node[focus=true]:not([moving]) {
-        animation: blink 1s ease infinite;
+        animation: blink 1.7s infinite ease;
       }
       @keyframes blink {
-        0%, 40% { opacity: 0 }
-        50%, 90% { opacity: 1 }
+        0% {
+          transform-origin: left;
+          -webkit-transform: scale(0.1, 0.1);
+          opacity: 0.0;
+        }
+        50% {opacity: 1.0;}
+        100% {
+          transform-origin: left;
+          -webkit-transform: scale(1.2, 1.2);
+          opacity: 0.0;
+        }
       }
     `
   })
